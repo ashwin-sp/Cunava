@@ -1,0 +1,4 @@
+#Sun Dec 24 02:52:24 IST 2017
+base.0=/Users/ashwin-4529/AshwinPersonal/Cunava/app/build/intermediates/transforms/dexMerger/debug/8
+path.0=classes.dex
+renamed.0=classes.dex
