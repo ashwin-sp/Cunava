@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Cunava</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_vote">VoteActivity</string>
+    <string name="title_activity_register">RegisterActivity</string>
+    <string name="title_activity_result">ResultActivity</string>
+    <string name="txt_h">Your vote has been casted successfully</string>
+    <string name="txt_w">Logout</string>
+
+</resources>

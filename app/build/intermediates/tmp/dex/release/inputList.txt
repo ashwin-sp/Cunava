@@ -1,0 +1,2 @@
+C:\Users\admin\AndroidStudioProjects\WelcomeActivity\app\build\intermediates\classes\release
+C:\Users\admin\AndroidStudioProjects\WelcomeActivity\app\build\intermediates\pre-dexed\release\support-v4-19.1.0-52ef4bcdb176e7a351a98305c22619cfbb9c8fd8.jar
