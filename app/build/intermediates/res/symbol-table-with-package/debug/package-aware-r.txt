@@ -93,7 +93,7 @@ int id normal 0x7f070022
 int id notification_background 0x7f070023
 int id notification_main_column 0x7f070024
 int id notification_main_column_container 0x7f070025
-int id progressBar1 0x7f070026
+int id progressBar 0x7f070026
 int id radio0 0x7f070027
 int id radio1 0x7f070028
 int id radioButton 0x7f070029

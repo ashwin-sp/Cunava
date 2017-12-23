@@ -175,7 +175,7 @@ public final class R {
     public static final int notification_background=0x7f070023;
     public static final int notification_main_column=0x7f070024;
     public static final int notification_main_column_container=0x7f070025;
-    public static final int progressBar1=0x7f070026;
+    public static final int progressBar=0x7f070026;
     public static final int radio0=0x7f070027;
     public static final int radio1=0x7f070028;
     public static final int radioButton=0x7f070029;

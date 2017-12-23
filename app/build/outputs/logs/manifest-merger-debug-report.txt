@@ -4,13 +4,13 @@ ADDED from /Users/ashwin-4529/AshwinPersonal/Cunava/app/src/main/AndroidManifest
 INJECTED from /Users/ashwin-4529/AshwinPersonal/Cunava/app/src/main/AndroidManifest.xml:2:1-59:12
 INJECTED from /Users/ashwin-4529/AshwinPersonal/Cunava/app/src/main/AndroidManifest.xml:2:1-59:12
 INJECTED from /Users/ashwin-4529/AshwinPersonal/Cunava/app/src/main/AndroidManifest.xml:2:1-59:12
-MERGED from [com.android.support:support-v4:27.0.2] /Users/ashwin-4529/.gradle/caches/transforms-1/files-1.1/support-v4-27.0.2.aar/34b9a7a0d82c8c0daca5b4ba5a864682/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-media-compat:27.0.2] /Users/ashwin-4529/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.0.2.aar/8d90c52927262ca759b3296acf6dc851/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-fragment:27.0.2] /Users/ashwin-4529/.gradle/caches/transforms-1/files-1.1/support-fragment-27.0.2.aar/6a4bbaa42932b50015cbaf9f2d46c1e3/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-core-utils:27.0.2] /Users/ashwin-4529/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.0.2.aar/3ed4e5544dd702fccc7aa007e49dc3c6/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-core-ui:27.0.2] /Users/ashwin-4529/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.0.2.aar/2591b93ccd122955234f1e63469fb6cd/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-compat:27.0.2] /Users/ashwin-4529/.gradle/caches/transforms-1/files-1.1/support-compat-27.0.2.aar/2b301df60e89885d21678328c8f8a524/AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:runtime:1.0.3] /Users/ashwin-4529/.gradle/caches/transforms-1/files-1.1/runtime-1.0.3.aar/9c1d03a647cb1109f887476e731f7702/AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:support-v4:27.0.2] /Users/ashwin-4529/.gradle/caches/transforms-1/files-1.1/support-v4-27.0.2.aar/76b3fdda684341e42affbc16c1a171cc/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-media-compat:27.0.2] /Users/ashwin-4529/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.0.2.aar/cc7a54bfe590c56e40e0d0476b32cf0b/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-fragment:27.0.2] /Users/ashwin-4529/.gradle/caches/transforms-1/files-1.1/support-fragment-27.0.2.aar/ce7d83728284fe39d43e3d90d58d8e13/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:27.0.2] /Users/ashwin-4529/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.0.2.aar/4c2de9a95f78089ab41d93b30c431efd/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:27.0.2] /Users/ashwin-4529/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.0.2.aar/36dbb30c246ee055b5e1639d068b01dd/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:27.0.2] /Users/ashwin-4529/.gradle/caches/transforms-1/files-1.1/support-compat-27.0.2.aar/7cc82854d610fd87e92ecadaa824306f/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.0.3] /Users/ashwin-4529/.gradle/caches/transforms-1/files-1.1/runtime-1.0.3.aar/eff457d27acbf5bbb97ebde48b8317f8/AndroidManifest.xml:17:1-24:12
 INJECTED from /Users/ashwin-4529/AshwinPersonal/Cunava/app/src/main/AndroidManifest.xml:2:1-59:12
 INJECTED from /Users/ashwin-4529/AshwinPersonal/Cunava/app/src/main/AndroidManifest.xml:2:1-59:12
 INJECTED from /Users/ashwin-4529/AshwinPersonal/Cunava/app/src/main/AndroidManifest.xml:2:1-59:12
@@ -32,20 +32,20 @@ uses-sdk
 ADDED from /Users/ashwin-4529/AshwinPersonal/Cunava/app/src/main/AndroidManifest.xml:8:5-10:41
 INJECTED from /Users/ashwin-4529/AshwinPersonal/Cunava/app/src/main/AndroidManifest.xml:8:5-10:41
 INJECTED from /Users/ashwin-4529/AshwinPersonal/Cunava/app/src/main/AndroidManifest.xml:8:5-10:41
-MERGED from [com.android.support:support-v4:27.0.2] /Users/ashwin-4529/.gradle/caches/transforms-1/files-1.1/support-v4-27.0.2.aar/34b9a7a0d82c8c0daca5b4ba5a864682/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-v4:27.0.2] /Users/ashwin-4529/.gradle/caches/transforms-1/files-1.1/support-v4-27.0.2.aar/34b9a7a0d82c8c0daca5b4ba5a864682/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-media-compat:27.0.2] /Users/ashwin-4529/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.0.2.aar/8d90c52927262ca759b3296acf6dc851/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-media-compat:27.0.2] /Users/ashwin-4529/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.0.2.aar/8d90c52927262ca759b3296acf6dc851/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-fragment:27.0.2] /Users/ashwin-4529/.gradle/caches/transforms-1/files-1.1/support-fragment-27.0.2.aar/6a4bbaa42932b50015cbaf9f2d46c1e3/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-fragment:27.0.2] /Users/ashwin-4529/.gradle/caches/transforms-1/files-1.1/support-fragment-27.0.2.aar/6a4bbaa42932b50015cbaf9f2d46c1e3/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-utils:27.0.2] /Users/ashwin-4529/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.0.2.aar/3ed4e5544dd702fccc7aa007e49dc3c6/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-utils:27.0.2] /Users/ashwin-4529/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.0.2.aar/3ed4e5544dd702fccc7aa007e49dc3c6/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-ui:27.0.2] /Users/ashwin-4529/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.0.2.aar/2591b93ccd122955234f1e63469fb6cd/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-ui:27.0.2] /Users/ashwin-4529/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.0.2.aar/2591b93ccd122955234f1e63469fb6cd/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-compat:27.0.2] /Users/ashwin-4529/.gradle/caches/transforms-1/files-1.1/support-compat-27.0.2.aar/2b301df60e89885d21678328c8f8a524/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-compat:27.0.2] /Users/ashwin-4529/.gradle/caches/transforms-1/files-1.1/support-compat-27.0.2.aar/2b301df60e89885d21678328c8f8a524/AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:runtime:1.0.3] /Users/ashwin-4529/.gradle/caches/transforms-1/files-1.1/runtime-1.0.3.aar/9c1d03a647cb1109f887476e731f7702/AndroidManifest.xml:20:5-22:41
-MERGED from [android.arch.lifecycle:runtime:1.0.3] /Users/ashwin-4529/.gradle/caches/transforms-1/files-1.1/runtime-1.0.3.aar/9c1d03a647cb1109f887476e731f7702/AndroidManifest.xml:20:5-22:41
+MERGED from [com.android.support:support-v4:27.0.2] /Users/ashwin-4529/.gradle/caches/transforms-1/files-1.1/support-v4-27.0.2.aar/76b3fdda684341e42affbc16c1a171cc/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.0.2] /Users/ashwin-4529/.gradle/caches/transforms-1/files-1.1/support-v4-27.0.2.aar/76b3fdda684341e42affbc16c1a171cc/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.0.2] /Users/ashwin-4529/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.0.2.aar/cc7a54bfe590c56e40e0d0476b32cf0b/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.0.2] /Users/ashwin-4529/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.0.2.aar/cc7a54bfe590c56e40e0d0476b32cf0b/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.0.2] /Users/ashwin-4529/.gradle/caches/transforms-1/files-1.1/support-fragment-27.0.2.aar/ce7d83728284fe39d43e3d90d58d8e13/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.0.2] /Users/ashwin-4529/.gradle/caches/transforms-1/files-1.1/support-fragment-27.0.2.aar/ce7d83728284fe39d43e3d90d58d8e13/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.0.2] /Users/ashwin-4529/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.0.2.aar/4c2de9a95f78089ab41d93b30c431efd/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.0.2] /Users/ashwin-4529/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.0.2.aar/4c2de9a95f78089ab41d93b30c431efd/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.0.2] /Users/ashwin-4529/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.0.2.aar/36dbb30c246ee055b5e1639d068b01dd/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.0.2] /Users/ashwin-4529/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.0.2.aar/36dbb30c246ee055b5e1639d068b01dd/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.0.2] /Users/ashwin-4529/.gradle/caches/transforms-1/files-1.1/support-compat-27.0.2.aar/7cc82854d610fd87e92ecadaa824306f/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.0.2] /Users/ashwin-4529/.gradle/caches/transforms-1/files-1.1/support-compat-27.0.2.aar/7cc82854d610fd87e92ecadaa824306f/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.0.3] /Users/ashwin-4529/.gradle/caches/transforms-1/files-1.1/runtime-1.0.3.aar/eff457d27acbf5bbb97ebde48b8317f8/AndroidManifest.xml:20:5-22:41
+MERGED from [android.arch.lifecycle:runtime:1.0.3] /Users/ashwin-4529/.gradle/caches/transforms-1/files-1.1/runtime-1.0.3.aar/eff457d27acbf5bbb97ebde48b8317f8/AndroidManifest.xml:20:5-22:41
 INJECTED from /Users/ashwin-4529/AshwinPersonal/Cunava/app/src/main/AndroidManifest.xml:8:5-10:41
 INJECTED from /Users/ashwin-4529/AshwinPersonal/Cunava/app/src/main/AndroidManifest.xml:8:5-10:41
 	android:targetSdkVersion

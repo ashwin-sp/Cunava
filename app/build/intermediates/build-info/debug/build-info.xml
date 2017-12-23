@@ -6,34 +6,40 @@
     density="xxhdpi"
     format="10"
     plugin-version="3.0.1"
-    timestamp="1514064132734"
+    timestamp="1514068549120"
     token="8362523059253263585"
     verifier="FULL_BUILD_REQUESTED" >
 
     <task
         name="javac"
-        duration="2649" />
+        duration="1393" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="149" />
+        duration="261" />
     <task
         name="verifier"
-        duration="105" />
+        duration="81" />
 
     <artifact
         location="/Users/ashwin-4529/AshwinPersonal/Cunava/app/build/intermediates/split-apk/debug/dep/dependencies.apk"
         type="SPLIT" />
     <artifact
-        location="/Users/ashwin-4529/AshwinPersonal/Cunava/app/build/intermediates/split-apk/debug/slices/slice_0.apk"
+        location="/Users/ashwin-4529/AshwinPersonal/Cunava/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
         type="SPLIT" />
     <artifact
-        location="/Users/ashwin-4529/AshwinPersonal/Cunava/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
+        location="/Users/ashwin-4529/AshwinPersonal/Cunava/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
+        type="SPLIT" />
+    <artifact
+        location="/Users/ashwin-4529/AshwinPersonal/Cunava/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
         type="SPLIT" />
     <artifact
         location="/Users/ashwin-4529/AshwinPersonal/Cunava/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
+        type="SPLIT" />
+    <artifact
+        location="/Users/ashwin-4529/AshwinPersonal/Cunava/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
         type="SPLIT" />
     <artifact
         location="/Users/ashwin-4529/AshwinPersonal/Cunava/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
@@ -42,19 +48,13 @@
         location="/Users/ashwin-4529/AshwinPersonal/Cunava/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
         type="SPLIT" />
     <artifact
-        location="/Users/ashwin-4529/AshwinPersonal/Cunava/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
-        type="SPLIT" />
-    <artifact
-        location="/Users/ashwin-4529/AshwinPersonal/Cunava/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
-        type="SPLIT" />
-    <artifact
-        location="/Users/ashwin-4529/AshwinPersonal/Cunava/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
-        type="SPLIT" />
-    <artifact
-        location="/Users/ashwin-4529/AshwinPersonal/Cunava/app/build/intermediates/split-apk/debug/slices/slice_9.apk"
+        location="/Users/ashwin-4529/AshwinPersonal/Cunava/app/build/intermediates/split-apk/debug/slices/slice_0.apk"
         type="SPLIT" />
     <artifact
         location="/Users/ashwin-4529/AshwinPersonal/Cunava/app/build/intermediates/split-apk/debug/slices/slice_8.apk"
+        type="SPLIT" />
+    <artifact
+        location="/Users/ashwin-4529/AshwinPersonal/Cunava/app/build/intermediates/split-apk/debug/slices/slice_9.apk"
         type="SPLIT" />
     <artifact
         location="/Users/ashwin-4529/AshwinPersonal/Cunava/app/build/outputs/apk/debug/app-debug.apk"
@@ -62,19 +62,25 @@
 
     <build
         build-mode="FULL"
-        timestamp="1514064132734"
+        timestamp="1514068549120"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="/Users/ashwin-4529/AshwinPersonal/Cunava/app/build/intermediates/split-apk/debug/dep/dependencies.apk"
             type="SPLIT" />
         <artifact
-            location="/Users/ashwin-4529/AshwinPersonal/Cunava/app/build/intermediates/split-apk/debug/slices/slice_0.apk"
+            location="/Users/ashwin-4529/AshwinPersonal/Cunava/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
             type="SPLIT" />
         <artifact
-            location="/Users/ashwin-4529/AshwinPersonal/Cunava/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
+            location="/Users/ashwin-4529/AshwinPersonal/Cunava/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/ashwin-4529/AshwinPersonal/Cunava/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
             type="SPLIT" />
         <artifact
             location="/Users/ashwin-4529/AshwinPersonal/Cunava/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/ashwin-4529/AshwinPersonal/Cunava/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
             type="SPLIT" />
         <artifact
             location="/Users/ashwin-4529/AshwinPersonal/Cunava/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
@@ -83,19 +89,13 @@
             location="/Users/ashwin-4529/AshwinPersonal/Cunava/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
             type="SPLIT" />
         <artifact
-            location="/Users/ashwin-4529/AshwinPersonal/Cunava/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
-            type="SPLIT" />
-        <artifact
-            location="/Users/ashwin-4529/AshwinPersonal/Cunava/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
-            type="SPLIT" />
-        <artifact
-            location="/Users/ashwin-4529/AshwinPersonal/Cunava/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
-            type="SPLIT" />
-        <artifact
-            location="/Users/ashwin-4529/AshwinPersonal/Cunava/app/build/intermediates/split-apk/debug/slices/slice_9.apk"
+            location="/Users/ashwin-4529/AshwinPersonal/Cunava/app/build/intermediates/split-apk/debug/slices/slice_0.apk"
             type="SPLIT" />
         <artifact
             location="/Users/ashwin-4529/AshwinPersonal/Cunava/app/build/intermediates/split-apk/debug/slices/slice_8.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/ashwin-4529/AshwinPersonal/Cunava/app/build/intermediates/split-apk/debug/slices/slice_9.apk"
             type="SPLIT" />
         <artifact
             location="/Users/ashwin-4529/AshwinPersonal/Cunava/app/build/outputs/apk/debug/app-debug.apk"
