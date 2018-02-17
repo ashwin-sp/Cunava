@@ -49,12 +49,13 @@ public class RegisterActivity extends Activity {
     int f1=0,f2=0,f3=0,f4=0,f5=0,f6=0,f7=0,f8=0;
     DatabaseHelper db;
     SQLiteDatabase sb;
-    static int regime= 1000;
+   // static int regime= 1000;
+    int code = -1;
     static int counterpa;
     private static String SENT = "SMS_SENT";
     private static String DELIVERED = "SMS_DELIVERED";
     private static int MAX_SMS_MESSAGE_LENGTH = 160;
-    static int[] count= new int[9999];
+   // static int[] count= new int[9999];
     public static final String CHANNEL_ONE_ID = "General";
     public static final String CHANNEL_ONE_NAME = "General";
 
@@ -91,7 +92,7 @@ public class RegisterActivity extends Activity {
         t19.setVisibility(View.GONE);
        db = new DatabaseHelper(RegisterActivity.this);
        sb = db.getReadableDatabase();
-
+       Log.d("Reg Check ", "9789859912".hashCode()+"");
 	}
     public void onRadioButtonClicked(View view) {
         // Is the button now checked?
@@ -293,7 +294,8 @@ public class RegisterActivity extends Activity {
 			 * Insert the Values to the Database
 			 */
                     //db.execSQL("create table if not exists LOGIN (Name TEXT,Department TEXT,Year NUMBER,Password TEXT,Confirmpassword TEXT)");
-                    regime++;
+                    //regime++;
+                    code = phone.hashCode();
                     sb.execSQL("insert into LOGGER "
                             + "values('"
                             + first_name.getText().toString()
@@ -326,16 +328,23 @@ public class RegisterActivity extends Activity {
                             + phone.getText().toString()
                             + "',"
                             + "'"
-                            + regime
+                            + code
+                            + "',"
+                            + "'"
+                            + "false"
+                            + "',"
+                            + "'"
+                            + "NOTA"
                             + "')");
                     // Call the Methods
-                    count[regime] = 0;
+                //    count[regime] = 0;
+
                     Calendar c = Calendar.getInstance();
                     SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
                     String formattedDate = df.format(c.getTime());
 
 
-                    sendSMS("9841501621", "Registered for voting on " + formattedDate + " by " + first_name.getText().toString() + ". The register number is " + regime, RegisterActivity.this);
+                    sendSMS("9841501621", "Registered for voting on " + formattedDate + " by " + first_name.getText().toString() + ". The confirmation code is " + code, RegisterActivity.this);
                     Toast.makeText(getApplicationContext(),
                             "Registered Successfully...", Toast.LENGTH_LONG)
                             .show();
@@ -362,28 +371,24 @@ public void navigate() {
 
     Intent intent = new Intent(this, LoginActivity.class);
     PendingIntent pIntent = PendingIntent.getActivity(this, 0, intent, 0);
-
-
     NotificationManager mNotifyMgr =
             (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
     NotificationChannel notificationChannel = new NotificationChannel(CHANNEL_ONE_ID,
             CHANNEL_ONE_NAME, mNotifyMgr.IMPORTANCE_HIGH);
-
-//Configure the channel’s initial settings//
-
     notificationChannel.enableLights(true);
     notificationChannel.setLightColor(Color.RED);
     notificationChannel.setShowBadge(true);
     notificationChannel.setLockscreenVisibility(Notification.VISIBILITY_PUBLIC);
-
-    // Build notification
-    // Actions are just fake
-    NotificationCompat.Builder noti = new NotificationCompat.Builder(this)
+    if (mNotifyMgr != null) {
+        mNotifyMgr.createNotificationChannel(notificationChannel);
+    }
+    Notification.Builder noti = new Notification.Builder(this)
             .setContentTitle("CUNAVA VOTER")
-            .setContentText("Registered successfully through CUNAVA").setSmallIcon(R.drawable.ic_launcher)
+            .setContentText("Your Confirmation code is: "+ code).setSmallIcon(R.drawable.ic_launcher)
             .setContentIntent(pIntent)
-            .setChannelId(CHANNEL_ONE_ID)
-            .addAction(R.drawable.ic_launcher, "Goto app", pIntent);
+            .setChannelId(CHANNEL_ONE_ID);
+
+    noti.getNotification().flags |= Notification.FLAG_AUTO_CANCEL;
 
 
         mNotifyMgr.notify(0, noti.build());

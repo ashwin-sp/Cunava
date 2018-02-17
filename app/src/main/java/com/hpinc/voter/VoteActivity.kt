@@ -3,6 +3,7 @@ package com.hpinc.voter
 import android.os.Bundle
 import android.app.Activity
 import android.content.Intent
+import android.database.sqlite.SQLiteDatabase
 import android.util.Log
 import android.view.View
 import android.widget.Button
@@ -22,10 +23,11 @@ class VoteActivity : Activity() {
     private var button: Button? = null
 
     private var db = DatabaseHelper(this@VoteActivity)
+    private lateinit var sb: SQLiteDatabase
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_vote)
-
+        sb = db.readableDatabase
 
         radioGroup = findViewById<View>(R.id.radioGroup1) as RadioGroup
 
@@ -53,20 +55,30 @@ class VoteActivity : Activity() {
         button = findViewById<View>(R.id.button1) as Button
         button!!.setOnClickListener {
             val selectedId = radioGroup!!.checkedRadioButtonId
-
             // find which radioButton is checked by id
-            if (selectedId == candidate1!!.id) {
-                Toast.makeText(applicationContext, "You chose 'ASSA'", Toast.LENGTH_SHORT).show()
-                RegisterActivity.count[db.getyourdata2(LoginActivity.user, LoginActivity.pass)] = 1
-
-            } else if (selectedId == candidate2!!.id) {
-                Toast.makeText(applicationContext, "You chose 'PHPRY'", Toast.LENGTH_SHORT).show()
-                RegisterActivity.count[db.getyourdata2(LoginActivity.user, LoginActivity.pass)] = 1
-            } else if (selectedId == nato!!.id) {
-                Toast.makeText(applicationContext, "You chose 'NOTA'", Toast.LENGTH_SHORT).show()
-                RegisterActivity.count[db.getyourdata2(LoginActivity.user, LoginActivity.pass)] = 1
-            } else {
-                Toast.makeText(applicationContext, "you did not choose any option", Toast.LENGTH_SHORT).show()
+            when (selectedId) {
+                candidate1!!.id -> {
+                    Toast.makeText(applicationContext, "You chose 'ASSA'", Toast.LENGTH_SHORT).show()
+                    var query = "UPDATE LOGGER SET voted='true' WHERE first_name='"+ LoginActivity.user +"' and password='"+LoginActivity.pass+"'"
+                    sb.execSQL(query)
+                    query = "UPDATE LOGGER SET castedTo='ASSA' WHERE first_name='"+ LoginActivity.user +"' and password='"+LoginActivity.pass+"'"
+                    sb.execSQL(query)
+                }
+                candidate2!!.id -> {
+                    Toast.makeText(applicationContext, "You chose 'PHPRY'", Toast.LENGTH_SHORT).show()
+                    var query = "UPDATE LOGGER SET voted='true' WHERE first_name='"+ LoginActivity.user +"' and password='"+LoginActivity.pass+"'"
+                    sb.execSQL(query)
+                    query = "UPDATE LOGGER SET castedTo='PHPRY' WHERE first_name='"+ LoginActivity.user +"' and password='"+LoginActivity.pass+"'"
+                    sb.execSQL(query)
+                }
+                nato!!.id -> {
+                    Toast.makeText(applicationContext, "You chose 'NOTA'", Toast.LENGTH_SHORT).show()
+                    var query = "UPDATE LOGGER SET voted='true' WHERE first_name='"+ LoginActivity.user +"' and password='"+LoginActivity.pass+"'"
+                    sb.execSQL(query)
+                    query = "UPDATE LOGGER SET castedTo='NOTA' WHERE first_name='"+ LoginActivity.user +"' and password='"+LoginActivity.pass+"'"
+                    sb.execSQL(query)
+                }
+                else -> Toast.makeText(applicationContext, "you did not choose any option", Toast.LENGTH_SHORT).show()
             }
 
             val i = Intent(applicationContext, ResultActivity::class.java)

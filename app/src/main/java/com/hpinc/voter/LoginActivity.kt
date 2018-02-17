@@ -69,18 +69,18 @@ class LoginActivity : Activity() {
         if (user == "" || pass == "" || c == "") {
             Toast.makeText(applicationContext, "Please enter Name or Password or code", Toast.LENGTH_SHORT).show()
         } else {
-            val args = arrayOf(user)
-            val crs = sb.rawQuery("SELECT * FROM LOGGER WHERE first_name = ?", args)
-            val sappa = db.getyourdata2(user, pass)
-            val s = Integer.toString(sappa)
+            var args = arrayOf(user, pass)
+            val crs = sb.rawQuery("SELECT * FROM LOGGER WHERE first_name = ? and password = ?", args)
+            args = arrayOf(user, pass, c)
+            val crCode = sb.rawQuery("SELECT * FROM LOGGER WHERE first_name = ? and password = ? and Register = ?", args)
             if (crs.count == 0) {
 
                 Toast.makeText(applicationContext, "Username or Password Invalid", Toast.LENGTH_SHORT).show()
 
             } else {
-                if (c == s) {
+                if (crCode.count != 0) {
 
-                    if (RegisterActivity.count[db.getyourdata2(user, pass)] == 1) {
+                    if (db.getVotedStatus(user, pass) == "true") {
                         Toast.makeText(applicationContext, "Already voted...", Toast.LENGTH_SHORT).show()
                     } else {
                         val home = Intent(this@LoginActivity, VoteActivity::class.java)
@@ -89,7 +89,7 @@ class LoginActivity : Activity() {
                         overridePendingTransition(R.anim.open_translate, R.anim.close_scale)
                     }
                 } else {
-                    Toast.makeText(applicationContext, "Invalid Registration code" + sappa, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(applicationContext, "Invalid Registration code", Toast.LENGTH_SHORT).show()
                 }
             }
 
