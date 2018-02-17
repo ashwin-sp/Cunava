@@ -1,13 +1,21 @@
 package com.hpinc.voter;
 
+import android.Manifest;
 import android.app.Notification;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
+import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.content.ContextCompat;
 import android.telephony.SmsManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -47,6 +55,9 @@ public class RegisterActivity extends Activity {
     private static String DELIVERED = "SMS_DELIVERED";
     private static int MAX_SMS_MESSAGE_LENGTH = 160;
     static int[] count= new int[9999];
+    public static final String CHANNEL_ONE_ID = "General";
+    public static final String CHANNEL_ONE_NAME = "General";
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -352,18 +363,30 @@ public void navigate() {
     Intent intent = new Intent(this, LoginActivity.class);
     PendingIntent pIntent = PendingIntent.getActivity(this, 0, intent, 0);
 
+
+    NotificationManager mNotifyMgr =
+            (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+    NotificationChannel notificationChannel = new NotificationChannel(CHANNEL_ONE_ID,
+            CHANNEL_ONE_NAME, mNotifyMgr.IMPORTANCE_HIGH);
+
+//Configure the channel’s initial settings//
+
+    notificationChannel.enableLights(true);
+    notificationChannel.setLightColor(Color.RED);
+    notificationChannel.setShowBadge(true);
+    notificationChannel.setLockscreenVisibility(Notification.VISIBILITY_PUBLIC);
+
     // Build notification
     // Actions are just fake
-    Notification noti = new Notification.Builder(this)
+    NotificationCompat.Builder noti = new NotificationCompat.Builder(this)
             .setContentTitle("CUNAVA VOTER")
             .setContentText("Registered successfully through CUNAVA").setSmallIcon(R.drawable.ic_launcher)
             .setContentIntent(pIntent)
-            .addAction(R.drawable.ic_launcher, "Goto app", pIntent).build();
-    NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-    // hide the notification after its selected
-    noti.flags |= Notification.FLAG_AUTO_CANCEL;
+            .setChannelId(CHANNEL_ONE_ID)
+            .addAction(R.drawable.ic_launcher, "Goto app", pIntent);
 
-    notificationManager.notify(0, noti);
+
+        mNotifyMgr.notify(0, noti.build());
         Intent i =new Intent(RegisterActivity.this,LoginActivity.class);
         startActivity(i);
         finish();
@@ -383,19 +406,32 @@ public void navigate() {
     public void sendSMS(String phoneNumber, String message, Context mContext) {
 
 
-        PendingIntent piSent = PendingIntent.getBroadcast(mContext, 0, new Intent(SENT), 0);
-        PendingIntent piDelivered = PendingIntent.getBroadcast(mContext, 0,new Intent(DELIVERED), 0);
-        SmsManager smsManager = SmsManager.getDefault();
+        if (ContextCompat.checkSelfPermission(RegisterActivity.this,
+                Manifest.permission.SEND_SMS)
+                != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(RegisterActivity.this,
+                Manifest.permission.READ_PHONE_STATE)
+                != PackageManager.PERMISSION_GRANTED) {
 
-        int length = message.length();
-        if(length > MAX_SMS_MESSAGE_LENGTH) {
-            ArrayList<String> messagelist = smsManager.divideMessage(message);
-            smsManager.sendMultipartTextMessage(phoneNumber, null, messagelist, null, null);
+            // Should we show an explanation?
+            if (ActivityCompat.shouldShowRequestPermissionRationale(RegisterActivity.this,
+                    Manifest.permission.SEND_SMS)) {
 
+            } else {
+                Toast.makeText(RegisterActivity.this, "Please grant permission for sending sms in the settings ", Toast.LENGTH_LONG).show();
+            }
         }
         else {
-            smsManager.sendTextMessage(phoneNumber, null, message, piSent, piDelivered);
+            PendingIntent piSent = PendingIntent.getBroadcast(mContext, 0, new Intent(SENT), 0);
+            PendingIntent piDelivered = PendingIntent.getBroadcast(mContext, 0, new Intent(DELIVERED), 0);
+            SmsManager smsManager = SmsManager.getDefault();
+            int length = message.length();
+            if (length > MAX_SMS_MESSAGE_LENGTH) {
+                ArrayList<String> messagelist = smsManager.divideMessage(message);
+                smsManager.sendMultipartTextMessage(phoneNumber, null, messagelist, null, null);
+            } else {
+                smsManager.sendTextMessage(phoneNumber, null, message, piSent, piDelivered);
 
+            }
         }
     }
 

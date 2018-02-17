@@ -1,10 +1,14 @@
 package com.hpinc.voter
 
 
+import android.Manifest
 import android.content.Intent
 import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
 import android.app.Activity
+import android.content.pm.PackageManager
+import android.support.v4.app.ActivityCompat
+import android.support.v4.content.ContextCompat
 import android.util.Log
 import android.view.Menu
 import android.view.View
@@ -21,6 +25,7 @@ class LoginActivity : Activity() {
 
     private lateinit var db: DatabaseHelper
     private lateinit var sb: SQLiteDatabase
+    private val PERMISSION_REQUEST_CODE = 1
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -31,6 +36,25 @@ class LoginActivity : Activity() {
 
         db = DatabaseHelper(this@LoginActivity)
         sb = db.readableDatabase
+
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+
+            // Here, thisActivity is the current activity
+            if (ContextCompat.checkSelfPermission(this@LoginActivity,
+                            Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(this@LoginActivity,
+                            Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
+
+                // Should we show an explanation?
+                if (ActivityCompat.shouldShowRequestPermissionRationale(this@LoginActivity,
+                                Manifest.permission.SEND_SMS)) {
+
+                } else {
+                    ActivityCompat.requestPermissions(this@LoginActivity,
+                            arrayOf(Manifest.permission.SEND_SMS, Manifest.permission.READ_PHONE_STATE),
+                            PERMISSION_REQUEST_CODE)
+                }
+            }
+        }
 
     }
 
@@ -77,7 +101,6 @@ class LoginActivity : Activity() {
 
     fun Register(v: View) {
         val register1 = Intent(this@LoginActivity, RegisterActivity::class.java)
-
         startActivity(register1)
 
     }
@@ -102,4 +125,17 @@ class LoginActivity : Activity() {
         lateinit var pass: String
         lateinit var c: String
     }
+
+    override fun onRequestPermissionsResult(requestCode: Int,
+                                            permissions: Array<String>, grantResults: IntArray) {
+        when (requestCode) {
+            PERMISSION_REQUEST_CODE -> {
+                if (!(grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
+                    Toast.makeText(this, "Please grant permission for sending sms to Verification client", Toast.LENGTH_SHORT).show()
+                }
+                return
+            }
+        }
+    }
+
 }
