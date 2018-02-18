@@ -1,3 +1,3 @@
 # Cunava
 
-An e-voting application
+A mobile voting application
