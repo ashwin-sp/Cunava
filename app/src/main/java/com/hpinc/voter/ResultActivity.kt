@@ -9,7 +9,6 @@ import android.view.Menu
 import android.view.View
 import android.view.View.OnClickListener
 
-import com.example.feedback.R
 
 class ResultActivity : Activity() {
 

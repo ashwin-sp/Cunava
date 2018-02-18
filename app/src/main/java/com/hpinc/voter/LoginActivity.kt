@@ -15,27 +15,10 @@ import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 
-import com.example.feedback.R
 import android.provider.MediaStore
-import android.graphics.BitmapFactory
-import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
-import kotlinx.android.synthetic.main.activity_vote.*
-import android.R.attr.data
-import android.content.Context
 import android.graphics.Bitmap
-import android.net.Uri
-import java.util.Collections.rotate
-import android.support.v4.view.ViewCompat.getRotation
-import android.support.v4.graphics.TypefaceCompatUtil.getTempFile
-import com.example.feedback.R.id.imageView
-import android.R.attr.data
-import android.os.Environment
-import android.support.v4.app.NotificationCompat.getExtras
-import android.support.v4.content.FileProvider
 import java.io.ByteArrayOutputStream
-import java.io.File
-import java.util.*
+
 
 
 class LoginActivity : Activity() {
@@ -54,27 +37,6 @@ class LoginActivity : Activity() {
         password = findViewById<View>(R.id.editText2) as EditText
         entercode = findViewById<View>(R.id.editText3) as EditText
 
-
-
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
-
-            // Here, thisActivity is the current activity
-            if (ContextCompat.checkSelfPermission(this@LoginActivity,
-                            Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(this@LoginActivity,
-                            Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
-
-                // Should we show an explanation?
-                if (ActivityCompat.shouldShowRequestPermissionRationale(this@LoginActivity,
-                                Manifest.permission.SEND_SMS)) {
-
-                } else {
-                    ActivityCompat.requestPermissions(this@LoginActivity,
-                            arrayOf(Manifest.permission.SEND_SMS, Manifest.permission.READ_PHONE_STATE),
-                            PERMISSION_REQUEST_CODE)
-                }
-            }
-        }
-
     }
 
     fun Login(v: View) {
@@ -87,8 +49,6 @@ class LoginActivity : Activity() {
         pass = password.text.toString()
 
         c = entercode.text.toString()
-
-        Log.d("Reg number ", db.getyourdata2(user, pass).toString())
 
         if (user == "" || pass == "" || c == "") {
             Toast.makeText(applicationContext, "Please enter Name or Password or code", Toast.LENGTH_SHORT).show()
@@ -106,9 +66,9 @@ class LoginActivity : Activity() {
 
                        dbClose()
 
-                   /* if (db.getVotedStatus(user, pass) == "true") {
+                    if (db.getVotedStatus(user, pass) == "true") {
                         Toast.makeText(applicationContext, "Already voted...", Toast.LENGTH_SHORT).show()
-                    } else {*/
+                    } else {
 
                     /*    val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
                         cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, setImageUri())*/
@@ -122,7 +82,7 @@ class LoginActivity : Activity() {
 
                         startActivity(home)
                         overridePendingTransition(R.anim.open_translate, R.anim.close_scale)*/
-                  /*  }*/
+                    }
                 } else {
                     Toast.makeText(applicationContext, "Invalid Registration code", Toast.LENGTH_SHORT).show()
                 }
@@ -174,7 +134,7 @@ class LoginActivity : Activity() {
     }
 
     public override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
-        Log.d("Entered", "outside")
+       // Log.d("Entered", "outside")
         if (resultCode == Activity.RESULT_OK) {
             if (requestCode == 1000) {
                val extras = data.extras

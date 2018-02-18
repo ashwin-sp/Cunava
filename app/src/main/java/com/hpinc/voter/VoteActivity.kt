@@ -8,7 +8,6 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 
-import com.example.feedback.R
 import kotlinx.android.synthetic.main.activity_vote.*
 import android.graphics.BitmapFactory
 import android.graphics.Bitmap
@@ -53,7 +52,7 @@ class VoteActivity : Activity() {
         RetrofitCallBuilder.initRetroBuilder()
         RetrofitCallBuilder.getData("https://vision.googleapis.com/v1/images:annotate?key=".plus(resources.getString(R.string.key)), encodedImage,  object : ImageCallback {
             override fun updateImage(@NotNull jsonArray: JSONArray) {
-                println("Image JSONArray "+ jsonArray)
+                //println("Image JSONArray "+ jsonArray)
                 if(jsonArray.length() > 0) {
                     val singleObject = jsonArray.getJSONObject(0)
                     if (singleObject.has("labelAnnotations")) {

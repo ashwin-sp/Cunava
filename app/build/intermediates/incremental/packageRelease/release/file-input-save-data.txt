@@ -1,0 +1,7 @@
+#Internal package file, do not edit.
+#Sun Feb 18 22:28:31 IST 2018
+0.baseType=DIRECTORY
+0.base=/Users/ashwin-4529/AshwinPersonal/Cunava/app/build/intermediates/transforms/dex/release/0
+0.path=classes.dex
+0.set=DEX
+count=1

@@ -46,7 +46,7 @@ object RetrofitCallBuilder: Callback<String>
     fun getData(url: String, encodedImage: String, callback: ImageCallback)
     {
         val getAPI = retrofitBuilder.create(RetrofitCalls::class.java)
-        logLargeString(encodedImage)
+        //logLargeString(encodedImage)
         imageCallback = callback
         val text = "{\n" +
                 "  \"requests\":[\n" +
@@ -62,7 +62,7 @@ object RetrofitCallBuilder: Callback<String>
                 "    }\n" +
                 "  ]\n" +
                 "}"
-        Log.d("Request body ", text)
+       // Log.d("Request body ", text)
 /*        val text = "{\n" +
                 "  \"requests\":[\n" +
                 "    {\n" +
@@ -91,8 +91,8 @@ object RetrofitCallBuilder: Callback<String>
         }
     }
     override fun onResponse(call: Call<String>?, response: Response<String>?) {
-        System.out.println("Response Body ==> "+ response!!.body())
-        if(response.code() == 200) {
+        //System.out.println("Response Body ==> "+ response!!.body())
+        if(response?.code() == 200) {
             val jresponse = JSONObject(response.body())
             val items = jresponse.getJSONArray("responses")
             // val firstObject = items.getJSONObject(00

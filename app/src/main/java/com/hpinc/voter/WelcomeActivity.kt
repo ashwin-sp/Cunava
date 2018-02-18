@@ -6,7 +6,6 @@ import android.app.Activity
 import android.view.Menu
 import android.widget.ProgressBar
 
-import com.example.feedback.R
 import kotlinx.android.synthetic.main.activity_welcome.*
 
 class WelcomeActivity : Activity(), Runnable {

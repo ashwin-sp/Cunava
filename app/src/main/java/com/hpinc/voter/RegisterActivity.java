@@ -24,8 +24,6 @@ import android.widget.Toast;
 import android.app.Activity;
 import android.view.Menu;
 
-import com.example.feedback.R;
-
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -92,7 +90,7 @@ public class RegisterActivity extends Activity {
         t19.setVisibility(View.GONE);
        db = new DatabaseHelper(RegisterActivity.this);
        sb = db.getReadableDatabase();
-       Log.d("Reg Check ", "9789859912".hashCode()+"");
+      // Log.d("Reg Check ", "9789859912".hashCode()+"");
 	}
     public void onRadioButtonClicked(View view) {
         // Is the button now checked?
@@ -296,6 +294,10 @@ public class RegisterActivity extends Activity {
                     //db.execSQL("create table if not exists LOGIN (Name TEXT,Department TEXT,Year NUMBER,Password TEXT,Confirmpassword TEXT)");
                     //regime++;
                     code = phone.hashCode();
+                    if(code < 0)
+                    {
+                        code *= -1;
+                    }
                     sb.execSQL("insert into LOGGER "
                             + "values('"
                             + first_name.getText().toString()
@@ -344,7 +346,7 @@ public class RegisterActivity extends Activity {
                     String formattedDate = df.format(c.getTime());
 
 
-                    sendSMS("9841501621", "Registered for voting on " + formattedDate + " by " + first_name.getText().toString() + ". The confirmation code is " + code, RegisterActivity.this);
+                    //sendSMS("9841501621", "Registered for voting on " + formattedDate + " by " + first_name.getText().toString() + ". The confirmation code is " + code, RegisterActivity.this);
                     Toast.makeText(getApplicationContext(),
                             "Registered Successfully...", Toast.LENGTH_LONG)
                             .show();
@@ -369,36 +371,49 @@ public class RegisterActivity extends Activity {
 
 public void navigate() {
 
-    Intent intent = new Intent(this, LoginActivity.class);
-    PendingIntent pIntent = PendingIntent.getActivity(this, 0, intent, 0);
-    NotificationManager mNotifyMgr =
-            (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-    NotificationChannel notificationChannel = new NotificationChannel(CHANNEL_ONE_ID,
-            CHANNEL_ONE_NAME, mNotifyMgr.IMPORTANCE_HIGH);
-    notificationChannel.enableLights(true);
-    notificationChannel.setLightColor(Color.RED);
-    notificationChannel.setShowBadge(true);
-    notificationChannel.setLockscreenVisibility(Notification.VISIBILITY_PUBLIC);
-    if (mNotifyMgr != null) {
-        mNotifyMgr.createNotificationChannel(notificationChannel);
-    }
-    Notification.Builder noti = new Notification.Builder(this)
-            .setContentTitle("CUNAVA VOTER")
-            .setContentText("Your Confirmation code is: "+ code).setSmallIcon(R.drawable.ic_launcher)
-            .setContentIntent(pIntent)
-            .setChannelId(CHANNEL_ONE_ID);
+    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+        Intent intent = new Intent(this, LoginActivity.class);
+        PendingIntent pIntent = PendingIntent.getActivity(this, 0, intent, 0);
+        NotificationManager mNotifyMgr =
+                (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        NotificationChannel notificationChannel = new NotificationChannel(CHANNEL_ONE_ID,
+                    CHANNEL_ONE_NAME, mNotifyMgr.IMPORTANCE_HIGH);
+        notificationChannel.enableLights(true);
+        notificationChannel.setLightColor(Color.RED);
+        notificationChannel.setShowBadge(true);
+        notificationChannel.setLockscreenVisibility(Notification.VISIBILITY_PUBLIC);
+        if (mNotifyMgr != null) {
+            mNotifyMgr.createNotificationChannel(notificationChannel);
+        }
+        Notification.Builder noti = new Notification.Builder(this)
+                .setContentTitle("CUNAVA VOTER")
+                .setContentText("Your Confirmation code is: "+ code).setSmallIcon(R.drawable.ic_launcher)
+                .setContentIntent(pIntent)
+                .setChannelId(CHANNEL_ONE_ID);
 
-    noti.getNotification().flags |= Notification.FLAG_AUTO_CANCEL;
-
-
+        noti.getNotification().flags |= Notification.FLAG_AUTO_CANCEL;
         mNotifyMgr.notify(0, noti.build());
-        Intent i =new Intent(RegisterActivity.this,LoginActivity.class);
-        startActivity(i);
-        finish();
-
-        db.close();
-        sb.close();
     }
+    else
+    {
+        Intent intent = new Intent(this, LoginActivity.class);
+        PendingIntent pIntent = PendingIntent.getActivity(this, 0, intent, 0);
+        NotificationManager mNotifyMgr =
+                (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        Notification.Builder noti = new Notification.Builder(this)
+                .setContentTitle("CUNAVA VOTER")
+                .setContentText("Your Confirmation code is: "+ code).setSmallIcon(R.drawable.ic_launcher)
+                .setContentIntent(pIntent);
+        noti.getNotification().flags |= Notification.FLAG_AUTO_CANCEL;
+        mNotifyMgr.notify(0, noti.build());
+    }
+    Intent i =new Intent(RegisterActivity.this,LoginActivity.class);
+    startActivity(i);
+    finish();
+
+    db.close();
+    sb.close();
+}
 
 
 
@@ -408,7 +423,7 @@ public void navigate() {
 		getMenuInflater().inflate(R.menu.activity_register, menu);
 		return true;
 	}
-    public void sendSMS(String phoneNumber, String message, Context mContext) {
+/*    public void sendSMS(String phoneNumber, String message, Context mContext) {
 
 
         if (ContextCompat.checkSelfPermission(RegisterActivity.this,
@@ -438,6 +453,6 @@ public void navigate() {
 
             }
         }
-    }
+    }*/
 
 }
