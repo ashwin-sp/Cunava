@@ -51,8 +51,13 @@
     <integer name="cancel_button_image_alpha">127</integer>
     <integer name="status_bar_notification_info_maxnum">999</integer>
     <string name="app_name">Cunava</string>
+    <string name="capture_error">Error in capture, please try again later!</string>
+    <string name="capture_successful">Capture Successful</string>
     <string name="hello_world">Hello world!</string>
+    <string name="instruct_capture">Please take a proper portrait of yourself</string>
+    <string name="key">AIzaSyDMTUr6PNpB8Wg6zSeO0SEexDkb8WRlaoo</string>
     <string name="menu_settings">Settings</string>
+    <string name="retake">Please retake your picture</string>
     <string name="status_bar_notification_info_overflow">999+</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="title_activity_register">RegisterActivity</string>

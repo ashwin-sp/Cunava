@@ -148,6 +148,10 @@
         "source": "/Users/ashwin-4529/AshwinPersonal/Cunava/app/src/main/res/anim/open_scale.xml"
     },
     {
+        "merged": "/Users/ashwin-4529/AshwinPersonal/Cunava/app/build/intermediates/res/merged/debug/xml_provider_paths.xml.flat",
+        "source": "/Users/ashwin-4529/AshwinPersonal/Cunava/app/src/main/res/xml/provider_paths.xml"
+    },
+    {
         "merged": "/Users/ashwin-4529/AshwinPersonal/Cunava/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_notify_panel_notification_icon_bg.png.flat",
         "source": "/Users/ashwin-4529/.gradle/caches/transforms-1/files-1.1/support-compat-27.0.2.aar/f5637a0990b6fd8c4338c34c96236266/res/drawable-xhdpi-v4/notify_panel_notification_icon_bg.png"
     },
@@ -232,8 +236,16 @@
         "source": "/Users/ashwin-4529/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.0.2.aar/b7ae366a1ac7d64a2f06dfdf1b428ff6/res/layout/notification_media_cancel_action.xml"
     },
     {
+        "merged": "/Users/ashwin-4529/AshwinPersonal/Cunava/app/build/intermediates/res/merged/debug/drawable_circular_img.xml.flat",
+        "source": "/Users/ashwin-4529/AshwinPersonal/Cunava/app/src/main/res/drawable/circular_img.xml"
+    },
+    {
         "merged": "/Users/ashwin-4529/AshwinPersonal/Cunava/app/build/intermediates/res/merged/debug/layout_activity_login.xml.flat",
         "source": "/Users/ashwin-4529/AshwinPersonal/Cunava/app/src/main/res/layout/activity_login.xml"
+    },
+    {
+        "merged": "/Users/ashwin-4529/AshwinPersonal/Cunava/app/build/intermediates/res/merged/debug/drawable_circle.xml.flat",
+        "source": "/Users/ashwin-4529/AshwinPersonal/Cunava/app/src/main/res/drawable/circle.xml"
     },
     {
         "merged": "/Users/ashwin-4529/AshwinPersonal/Cunava/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_notification_bg_low_pressed.9.png.flat",

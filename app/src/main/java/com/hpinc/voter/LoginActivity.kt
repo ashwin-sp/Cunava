@@ -16,6 +16,26 @@ import android.widget.EditText
 import android.widget.Toast
 
 import com.example.feedback.R
+import android.provider.MediaStore
+import android.graphics.BitmapFactory
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
+import kotlinx.android.synthetic.main.activity_vote.*
+import android.R.attr.data
+import android.content.Context
+import android.graphics.Bitmap
+import android.net.Uri
+import java.util.Collections.rotate
+import android.support.v4.view.ViewCompat.getRotation
+import android.support.v4.graphics.TypefaceCompatUtil.getTempFile
+import com.example.feedback.R.id.imageView
+import android.R.attr.data
+import android.os.Environment
+import android.support.v4.app.NotificationCompat.getExtras
+import android.support.v4.content.FileProvider
+import java.io.ByteArrayOutputStream
+import java.io.File
+import java.util.*
 
 
 class LoginActivity : Activity() {
@@ -34,8 +54,7 @@ class LoginActivity : Activity() {
         password = findViewById<View>(R.id.editText2) as EditText
         entercode = findViewById<View>(R.id.editText3) as EditText
 
-        db = DatabaseHelper(this@LoginActivity)
-        sb = db.readableDatabase
+
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
 
@@ -60,11 +79,16 @@ class LoginActivity : Activity() {
 
     fun Login(v: View) {
 
+        db = DatabaseHelper(this@LoginActivity)
+        sb = db.readableDatabase
+
         user = userName.text.toString()
 
         pass = password.text.toString()
 
         c = entercode.text.toString()
+
+        Log.d("Reg number ", db.getyourdata2(user, pass).toString())
 
         if (user == "" || pass == "" || c == "") {
             Toast.makeText(applicationContext, "Please enter Name or Password or code", Toast.LENGTH_SHORT).show()
@@ -80,14 +104,25 @@ class LoginActivity : Activity() {
             } else {
                 if (crCode.count != 0) {
 
-                    if (db.getVotedStatus(user, pass) == "true") {
+                       dbClose()
+
+                   /* if (db.getVotedStatus(user, pass) == "true") {
                         Toast.makeText(applicationContext, "Already voted...", Toast.LENGTH_SHORT).show()
-                    } else {
-                        val home = Intent(this@LoginActivity, VoteActivity::class.java)
+                    } else {*/
+
+                    /*    val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+                        cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, setImageUri())*/
+                        Toast.makeText(this,  resources.getString(R.string.instruct_capture), Toast.LENGTH_SHORT ).show()
+                        val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+                        if (cameraIntent.resolveActivity(packageManager) != null) {
+                            startActivityForResult(cameraIntent, 1000)
+                        }
+                        overridePendingTransition(R.anim.open_translate, R.anim.close_scale)
+                       /* val home = Intent(this@LoginActivity, VoteActivity::class.java)
 
                         startActivity(home)
-                        overridePendingTransition(R.anim.open_translate, R.anim.close_scale)
-                    }
+                        overridePendingTransition(R.anim.open_translate, R.anim.close_scale)*/
+                  /*  }*/
                 } else {
                     Toast.makeText(applicationContext, "Invalid Registration code", Toast.LENGTH_SHORT).show()
                 }
@@ -138,4 +173,42 @@ class LoginActivity : Activity() {
         }
     }
 
+    public override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
+        Log.d("Entered", "outside")
+        if (resultCode == Activity.RESULT_OK) {
+            if (requestCode == 1000) {
+               val extras = data.extras
+               val imageBitmap =  extras.get("data") as Bitmap
+
+                //Convert to byte array
+                val stream = ByteArrayOutputStream()
+                imageBitmap.compress(Bitmap.CompressFormat.PNG, 100, stream)
+                val byteArray = stream.toByteArray()
+
+               //imageView.setImageBitmap(imageBitmap)
+/*
+
+                // CALL THIS METHOD TO GET THE URI FROM THE BITMAP
+                val tempUri = getImageUri(applicationContext, photo)
+
+                // CALL THIS METHOD TO GET THE ACTUAL PATH
+                val finalFile = File(getRealPathFromURI(tempUri))
+
+                Glide.with(this)
+                        .load()
+                        .apply(RequestOptions()
+                                .centerCrop())
+                        .into(imageView)*/
+                val home = Intent(this@LoginActivity, VoteActivity::class.java)
+                home.putExtra("image", byteArray)
+                startActivity(home)
+                overridePendingTransition(R.anim.open_translate, R.anim.close_scale)
+          }
+        }
+    }
+    private fun dbClose()
+    {
+        sb.close()
+        db.close()
+    }
 }
