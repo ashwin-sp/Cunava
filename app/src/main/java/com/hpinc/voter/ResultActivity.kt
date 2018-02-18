@@ -14,8 +14,6 @@ import com.example.feedback.R
 class ResultActivity : Activity() {
 
     private var button: Button? = null
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result)
